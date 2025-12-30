@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { ChatMessage } from './ChatMessage';
 import './ChatMessages.css'
-import { getCurrentDate } from '../utils/getCurrentDate';
+import { getCurrentDate } from '../utils/datetime';
 
 export function ChatMessages({ chatMessages }) {
   const currentDatetime = getCurrentDate();
-  
+
   const chatMessagesRef = useRef(null);
 
   useEffect(() => {

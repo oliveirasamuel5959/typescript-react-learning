@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import RobotProfileImage from '../assets/robot.png';
 import UserProfileImage from '../assets/user.png';
 import './ChatMessage.css';
