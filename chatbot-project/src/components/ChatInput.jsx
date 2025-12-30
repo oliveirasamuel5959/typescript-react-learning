@@ -23,8 +23,13 @@ export function ChatInput({ chatMessages, setChatMessages }) {
 
     setChatMessages(newChatMessages);
 
-    const response = Chatbot.getResponse(inputText);
-    console.log(response);
+    let response;
+
+    if (inputText === 'Who is my love and future wife ?') {
+      response = 'Your enternal love and future wife is Daniela, the most beautiful girl ever seen on earth, and you are going to get married soon!'
+    } else {
+      response = Chatbot.getResponse(inputText);
+    }
 
     setChatMessages([
       ...newChatMessages,

@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { ChatMessage } from './ChatMessage';
 import './ChatMessages.css'
+import { getCurrentDate } from '../utils/getCurrentDate';
 
 export function ChatMessages({ chatMessages }) {
-
+  const currentDatetime = getCurrentDate();
+  
   const chatMessagesRef = useRef(null);
 
   useEffect(() => {
@@ -22,6 +24,7 @@ export function ChatMessages({ chatMessages }) {
             message={chatMessage.message} 
             sender={chatMessage.sender}
             key={chatMessage.id}
+            currentTime={currentDatetime}
           />
         );
       })}

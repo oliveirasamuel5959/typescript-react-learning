@@ -1,24 +1,9 @@
+import { useState } from 'react';
 import RobotProfileImage from '../assets/robot.png';
 import UserProfileImage from '../assets/user.png';
 import './ChatMessage.css';
 
-export function ChatMessage({message, sender}) {
-
-  // const message = props.message;
-  // const sender =  props.sender;
-
-  // const { message, sender } = props;
-
-  /*
-  if (sender === 'robot') {
-    return (
-      <div>
-        <img src="robot.png" width="50" />
-        {message}
-      </div>
-    );
-  }
-  */
+export function ChatMessage({message, sender, currentTime}) {
 
   return (
     <div className={
@@ -31,6 +16,9 @@ export function ChatMessage({message, sender}) {
       )}
       <div className="chat-message-text">
         {message}
+        <div className='chat-message-datetime'>
+          {currentTime}
+        </div>
       </div>
       { sender === 'user' && (
         <img src={UserProfileImage} className="chat-message-profile" /> 
