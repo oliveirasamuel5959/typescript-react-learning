@@ -5,9 +5,8 @@ export function HomePage() {
   return (
     <>
       <title>Ecommerce Project</title>
-
+      <link rel="icon" type="image/png" href="home-favicon.png" />
       <Header />
-
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">
