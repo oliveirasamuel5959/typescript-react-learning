@@ -25,7 +25,6 @@ export function Header() {
 
       <div className="right-section">
         <Link className="orders-link header-link active" to="/orders">
-
           <span className="orders-text">Orders</span>
         </Link>
 

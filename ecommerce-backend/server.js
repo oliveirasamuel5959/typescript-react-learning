@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { sequelize } from './models/index.js';
 import productRoutes from './routes/products.js';
@@ -19,8 +20,10 @@ import { defaultCart } from './defaultData/defaultCart.js';
 import { defaultOrders } from './defaultData/defaultOrders.js';
 import fs from 'fs';
 
+dotenv.config();
+
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
