@@ -1,4 +1,5 @@
 import { Header } from '../components/Header';
+import { Button } from '../components/Button';
 import { products } from '../../starting-code/data/products';
 import './HomePage.css';
 
@@ -56,10 +57,7 @@ export function HomePage() {
                   <img src="images/icons/checkmark.png" />
                   Added
                 </div>
-
-                <button className="add-to-cart-button button-primary">
-                  Add to Cart
-                </button>
+                <Button />
               </div>
             );
           })}
