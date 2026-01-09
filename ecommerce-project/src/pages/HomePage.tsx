@@ -2,8 +2,32 @@ import { Header } from '../components/Header';
 import { Button } from '../components/Button';
 import { products } from '../../starting-code/data/products';
 import './HomePage.css';
+import { useState } from 'react';
+
+
+function fetchData() {
+
+  fetch('http://localhost:5500/api/products')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Parse the response as JSON
+    })
+    .then(data => {
+      console.log(data);
+      // return data;
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+
+}
 
 export function HomePage() {
+
+  fetchData();
+
   return (
     <>
       <title>Ecommerce Project</title>
