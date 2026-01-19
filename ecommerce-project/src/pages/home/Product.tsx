@@ -4,6 +4,7 @@ import { formatMoney } from '../../utils/money';
 
 
 export function Product({ product, loadCart }) {
+  
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
