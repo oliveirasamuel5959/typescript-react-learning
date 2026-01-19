@@ -7,28 +7,27 @@ import { calculateDeliveryProgress } from '../utils/calculation';
 import { getStatus } from '../utils/styleHelpers';
 import './TrackingPage.css';
 
-export function TrackingPage({ cart }) {
+export function TrackingPage() {
 
   const { orderId, productId } = useParams();
-  const [order, setOrder] = useState(null);
+  const [orders, setOrders] = useState(null);
 
   useEffect(() => {
     const fetchOrderData = async () => {
       const response = await axios.get(`/api/orders/${orderId}?expand=products`);
-      setOrder(response.data);
+      setOrders(response.data);
       // console.log("Data: ", response.data);
-    }
+    } 
 
     fetchOrderData();
-
   }, [orderId]);
 
-  if (!order) {
+  if (!orders) {
     return null;
   }
 
-  const productDetails = order.products.find(
-    products => products.productId === productId
+  const productDetails = orders.products.find(
+    p => p.productId === productId
   );
 
   console.log(productDetails);

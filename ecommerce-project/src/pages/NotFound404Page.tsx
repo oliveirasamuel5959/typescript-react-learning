@@ -1,10 +1,8 @@
-import { Header } from "../components/Header";
 import "./NotFound404Page.css";
 
 export function NotFound404Page() {
   return (
     <>
-      <Header />
       <div className="main-content">
         <p className="message">404 — Page Not Found</p>
         <span className="sub-message">

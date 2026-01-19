@@ -13,5 +13,8 @@ export default defineConfig({
         target: 'http://localhost:8080'
       }
     }
+  },
+  build: {
+    outDir: '../ecommerce-backend/dist'
   }
 })
