@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-import { formatMoney } from '../../utils/money';
 import { DeliveryOptions } from "./DeliveryOptions";
 import { CartItemDetails } from "./CartItemDetails";
 import { DeliveryDate } from "./DeliveryDate";

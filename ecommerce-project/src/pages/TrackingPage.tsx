@@ -3,7 +3,8 @@ import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { useParams } from 'react-router';
-import { Header } from '../components/Header';
+import { calculateDeliveryProgress } from '../utils/calculation';
+import { getStatus } from '../utils/styleHelpers';
 import './TrackingPage.css';
 
 export function TrackingPage({ cart }) {
@@ -30,7 +31,14 @@ export function TrackingPage({ cart }) {
     products => products.productId === productId
   );
 
-  console.log(productDetails);  
+  console.log(productDetails);
+
+  const progressPercent = calculateDeliveryProgress(
+    productDetails.product.createdAt,
+    productDetails.estimatedDeliveryTimeMs
+  );
+
+  const currentStatus = getStatus(progressPercent);
 
   if (!productDetails) {
     return <div>Product not found</div>;
@@ -58,22 +66,25 @@ export function TrackingPage({ cart }) {
             Quantity: {productDetails.quantity}
           </div>
 
-          <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+          <img className="product-image" src={productDetails.product.image} />
 
           <div className="progress-labels-container">
-            <div className="progress-label">
+            <div className={`progress-label ${currentStatus === 'Preparing' ? 'current-status' : ''}`}>
               Preparing
             </div>
-            <div className="progress-label current-status">
+            <div className={`progress-label ${currentStatus === 'Shipped' ? 'current-status' : ''}`}>
               Shipped
             </div>
-            <div className="progress-label">
+            <div className={`progress-label ${currentStatus === 'Delivered' ? 'current-status' : ''}`}>
               Delivered
             </div>
           </div>
 
           <div className="progress-bar-container">
-            <div className="progress-bar"></div>
+            <div
+              className="progress-bar"
+              style={{ width: `${progressPercent}%` }}
+            ></div>
           </div>
         </div>
       </div>
